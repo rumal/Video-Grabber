@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="chrome://VideoSubPlayer/skin/overlay.css" type="text/css"?>
-<!DOCTYPE overlay SYSTEM "chrome://VideoSubPlayer/locale/overlay.dtd">
-<overlay id="VideoSubPlayer-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<?xml-stylesheet href="chrome://VideoGrabber/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://VideoGrabber/locale/overlay.dtd">
+<overlay id="VideoGrabber-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script src="overlay.js"/>
   <script src="ff-overlay.js"/>
 
   <stringbundleset id="stringbundleset">
-    <stringbundle id="VideoSubPlayer-strings" src="chrome://VideoSubPlayer/locale/overlay.properties"/>
+    <stringbundle id="VideoGrabber-strings" src="chrome://VideoGrabber/locale/overlay.properties"/>
   </stringbundleset>
 
 <menupopup id="menu_ToolsPopup">
-  <menu id="VideoSubPlayer-menu" label="VideoSubPlayer">
+  <menu id="VideoGrabber-menu" label="VideoGrabber">
     <menupopup id="menu_detailsflvdwn">
-    	<menuitem id="VideoSubPlayer-activate" label="(D)Activate" 
-              oncommand="VideoSubPlayer.onMenuItemCommand(event);"/>
+    	<menuitem id="VideoGrabber-activate" label="(D)Activate" 
+              oncommand="VideoGrabber.onMenuItemCommand(event);"/>
     </menupopup>
   </menu>
 </menupopup>
 
 <statusbar id="status-bar">
-   <statusbarpanel id="VideoSubPlayer-barpanel"
-	 image="chrome://VideoSubPlayer/skin/off.gif"
+   <statusbarpanel id="VideoGrabber-barpanel"
+	 image="chrome://VideoGrabber/skin/off.gif"
      label="VideoSub Player"
      class="statusbarpanel-iconic" 
 	 tooltiptext="VideoSub Player"
-	 onclick="VideoSubPlayer.onMenuItemCommand(event);"
+	 onclick="VideoGrabber.onMenuItemCommand(event);"
    />
  </statusbar>
 </overlay>

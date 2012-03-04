@@ -61,53 +61,53 @@ TracingListener.prototype =
 }
 
 
-var VideoSubPlayer = {
+var VideoGrabber = {
     active:false,
     onLoad: function() {
         this.initialized = true;
-        this.strings = document.getElementById("VideoSubPlayer-strings");
+        this.strings = document.getElementById("VideoGrabber-strings");
     },
     myFunction: function (){
-        var MyMenu = document.getElementById("VideoSubPlayer-activate");
+        var MyMenu = document.getElementById("VideoGrabber-activate");
         MyMenu.label = "Deactivate";
         
         alert('VideoSub grabber is activated');
         var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
-        observerService.addObserver(VideoSubPlayer.myObserver, "http-on-examine-response", false);
-        observerService.addObserver(VideoSubPlayer.myObserver, "http-on-modify-request", false);
-        Firebug.Console.log('Áctivated');
+        observerService.addObserver(VideoGrabber.myObserver, "http-on-examine-response", false);
+        observerService.addObserver(VideoGrabber.myObserver, "http-on-modify-request", false);
+        //Firebug.Console.log('Áctivated');
     },
     myFunction_unreg : function (){
-        var MyMenu = document.getElementById("VideoSubPlayer-activate");
+        var MyMenu = document.getElementById("VideoGrabber-activate");
         MyMenu.label = "Activate"; 
 		
         alert('VideoSub grabber is deactivated');
         var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
         try{
-            observerService.removeObserver(VideoSubPlayer.myObserver, "http-on-examine-response");
-            observerService.removeObserver(VideoSubPlayer.myObserver,"http-on-modify-request");
+            observerService.removeObserver(VideoGrabber.myObserver, "http-on-examine-response");
+            observerService.removeObserver(VideoGrabber.myObserver,"http-on-modify-request");
         }catch(e){}
-        Firebug.Console.log('Deactivated');
+        //Firebug.Console.log('Deactivated');
     },
     onMenuItemCommand: function(e) {
         var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
         .getService(Components.interfaces.nsIPromptService);
-        var myPanelImage = document.getElementById("VideoSubPlayer-barpanel");
-        if(VideoSubPlayer.active == false){
-            VideoSubPlayer.myFunction();
-            VideoSubPlayer.active = true;
-            myPanelImage.setAttribute("image","chrome://VideoSubPlayer/skin/on.gif");
+        var myPanelImage = document.getElementById("VideoGrabber-barpanel");
+        if(VideoGrabber.active == false){
+            VideoGrabber.myFunction();
+            VideoGrabber.active = true;
+            myPanelImage.setAttribute("image","chrome://VideoGrabber/skin/on.gif");
             myPanelImage.setAttribute("tooltiptext","VideoSub Grabber is active. Click here to deactivate");
         }else{
-            VideoSubPlayer.myFunction_unreg();
-            VideoSubPlayer.active = false;
-            myPanelImage.setAttribute("image","chrome://VideoSubPlayer/skin/off.gif");
+            VideoGrabber.myFunction_unreg();
+            VideoGrabber.active = false;
+            myPanelImage.setAttribute("image","chrome://VideoGrabber/skin/off.gif");
             myPanelImage.setAttribute("tooltiptext","VideoSub Grabber is deactive. Click here to activate");
         }									
     },
 
     onToolbarButtonCommand: function(e) {
-        VideoSubPlayer.onMenuItemCommand(e);
+        VideoGrabber.onMenuItemCommand(e);
     },
     myObserver : {
         observe: function(aSubject, aTopic, aData){	
@@ -118,7 +118,7 @@ var VideoSubPlayer = {
             .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
             .getInterface(Components.interfaces.nsIDOMWindow);	
             var curUrl = mainWindow.getBrowser().selectedBrowser.contentWindow.location.href;
-            if (curUrl.indexOf("http://www.ideawide.com")!=0){
+            if (curUrl.indexOf("ideawide.com")==-1){
                 if (aTopic == "http-on-modify-request") {
                     var httpChannel = aSubject.QueryInterface(Components.interfaces.nsIHttpChannel);
                 }else if (aTopic == "http-on-examine-response" ) {		
@@ -142,7 +142,7 @@ var VideoSubPlayer = {
                         {
                             var url = httpChannel.URI.prePath + httpChannel.URI.path;
 							
-                            openUILink("http://www.ideawide.com/video-with-subtitles/?video="+url+ "&source="+curUrl, "current" , false, true);  
+                            openUILink("http://videosubplayer.ideawide.com/?video="+encodeURIComponent(url)+"&source="+encodeURIComponent(curUrl), "current" , false, true);  
 							
                         }							
                     }
@@ -166,5 +166,5 @@ var VideoSubPlayer = {
 
 
 window.addEventListener("load", function () {
-    VideoSubPlayer.onLoad();
+    VideoGrabber.onLoad();
 }, false);
