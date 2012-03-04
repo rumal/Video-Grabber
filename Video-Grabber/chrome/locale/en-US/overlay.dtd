@@ -1,0 +1,8 @@
+<!ENTITY VideoSubPlayer.label "Your localized menuitem">
+<!ENTITY VideoSubPlayerContext.label "Your Menuitem">
+<!ENTITY VideoSubPlayerContext.accesskey "Y">
+<!ENTITY VideoSubPlayerToolbarButton.label "Your Toolbar Button">
+<!ENTITY VideoSubPlayerToolbarButton.tooltip "This is your toolbar button!">
+<!ENTITY VideoSubPlayerSidebar.label "Your Sidebar">
+<!ENTITY VideoSubPlayerToolbar.name  "example">
+<!ENTITY VideoSubPlayerToolbar.label "This is an example toolbar. You can hide it under View &gt; toolbars &gt; &VideoSubPlayerToolbar.name;">

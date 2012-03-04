@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>perera.pasindu@gmail.com</em:id>
+    <em:type>2</em:type>
+    <em:name>Video sub Player</em:name>
+    <em:version>1.0</em:version>
+    <em:creator>Pasindu Perera</em:creator>
+    <em:contributor></em:contributor>
+    <em:description>This an addon to play online videos with subtitles. When you can go to any online video streaming site(such as Youtube, Metacafe, Megamovies …. ),  this will allow you to play with subtitles. Watch movies TV series available on other sites with your customized subtitles.</em:description>
+    <em:aboutURL>chrome://VideoSubPlayer/content/about.xul</em:aboutURL>
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id> <!-- Firefox -->
+        <em:minVersion>3.5</em:minVersion>
+        <em:maxVersion>9.0a1</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+  </Description>
+</RDF>

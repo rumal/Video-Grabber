@@ -1,0 +1,6 @@
+content   VideoSubPlayer                 chrome/content/
+skin      VideoSubPlayer   classic/1.0   chrome/skin/
+locale    VideoSubPlayer   en-US         chrome/locale/en-US/
+
+
+overlay   chrome://browser/content/browser.xul   chrome://VideoSubPlayer/content/ff-overlay.xul
