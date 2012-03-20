@@ -3,5 +3,5 @@ skin      VideoGrabber   classic/1.0   chrome/skin/
 locale    VideoGrabber   en-US         chrome/locale/en-US/
 
 
-overlay   chrome://browser/content/browser.xul   chrome://VideoGrabber/content/ff-overlay.xul
+overlay   chrome://browser/content/browser.xul   chrome://VideoGrabber/content/overlay.xul
 
